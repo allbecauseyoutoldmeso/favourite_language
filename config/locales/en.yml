@@ -1,4 +1,13 @@
 en:
+  favourite_languages:
+    new:
+      title: Favourite Language Guesser
+    show:
+      title: "%{username}'s Favourite Language"
+  helpers:
+    submit:
+      favourite_language:
+        create: Submit
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -7,3 +16,6 @@ en:
       mark: '*'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      favourite_language:
+        username: GitHub Username
