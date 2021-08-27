@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FavouriteLanguagesController < ApplicationController
-  before_action :set_favourite_language, only: [:new, :show]
+  before_action :set_favourite_language, only: %i[new show]
 
   def show
     @favourite_language.attributes = favourite_language_params

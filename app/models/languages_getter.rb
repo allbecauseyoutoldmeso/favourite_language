@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LanguagesGetter
   def initialize(username)
     @username = username

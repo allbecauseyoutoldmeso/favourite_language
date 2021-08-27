@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FavouriteLanguage
   include ActiveModel::Model
 
@@ -6,7 +8,7 @@ class FavouriteLanguage
   validates :username, presence: true
 
   def best_guess
-    languages.tally.max_by { |key, value| value }[0]
+    languages.tally.max_by { |_key, value| value }[0]
   end
 
   private

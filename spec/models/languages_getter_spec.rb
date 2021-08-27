@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe LanguagesGetter do
@@ -18,7 +20,7 @@ describe LanguagesGetter do
         ].to_json
       )
 
-      expect(language_getter.languages).to eq(['Ruby', 'Ruby', 'Ruby', 'Ruby'])
+      expect(language_getter.languages).to eq(%w[Ruby Ruby Ruby Ruby])
     end
   end
 end

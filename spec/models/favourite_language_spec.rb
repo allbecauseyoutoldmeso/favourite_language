@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe FavouriteLanguage do
@@ -28,13 +30,13 @@ describe FavouriteLanguage do
 
       language_getter = double(
         'LanguageGetter',
-        languages: [
-          'Ruby',
-          'Ruby',
-          'Ruby',
-          'Javascript',
-          'Javascript',
-          'Swift'
+        languages: %w[
+          Ruby
+          Ruby
+          Ruby
+          Javascript
+          Javascript
+          Swift
         ]
       )
 
