@@ -1,24 +1,15 @@
-# README
+# Favourite Language
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Spec
 
-Things you may want to cover:
+Build a simple web or command line application, which should allow users to enter an arbitrary GitHub username, and be presented with a best guess of the GitHub user's favourite programming language.
 
-* Ruby version
+This can be computed by using the GitHub API to fetch all of the user's public GitHub repos, each of which includes the name of the dominant language for the repository.
 
-* System dependencies
+## Running locally
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Clone and `cd` into this repository.
+* Run `bundle install`.
+* Run `rspec` to verify the tests are passing.
+* Run `rubocop` to verify that the code is looking sharp.
+* Run `bin/rails server` and go to `http://localhost:3000`.
