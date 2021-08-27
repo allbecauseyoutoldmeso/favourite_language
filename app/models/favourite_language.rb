@@ -11,11 +11,13 @@ class FavouriteLanguage
     languages.tally.max_by { |_key, value| value }[0]
   end
 
+  def fetch_languages
+    @languages = languages_getter.languages
+  end
+
   private
 
-  def languages
-    languages_getter.languages
-  end
+  attr_reader :languages
 
   def languages_getter
     LanguagesGetter.new(username)

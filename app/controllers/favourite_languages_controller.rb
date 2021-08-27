@@ -5,7 +5,15 @@ class FavouriteLanguagesController < ApplicationController
 
   def show
     @favourite_language.attributes = favourite_language_params
-    render :new unless @favourite_language.valid?
+
+    unless @favourite_language.valid?
+      render :new
+      return
+    end
+
+    @favourite_language.fetch_languages
+  rescue LanguagesGetter::FailedRequestError
+    render :error
   end
 
   private

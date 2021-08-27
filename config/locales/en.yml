@@ -1,6 +1,10 @@
 ---
 en:
   favourite_languages:
+    error:
+      back: Return to search form
+      description: It looks like we can't get the information we need right now.
+      title: Oh dear
     new:
       description: Enter a GitHub username to get a best guess of the GitHub user's
         favourite programming language

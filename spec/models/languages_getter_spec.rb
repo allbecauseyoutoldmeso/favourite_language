@@ -11,6 +11,7 @@ describe LanguagesGetter do
       stub_request(
         :get, "https://api.github.com/users/#{username}/repos"
       ).to_return(
+        status: 200,
         headers: { content_type: 'application/json' },
         body: [
           { language: 'Ruby' },
@@ -21,6 +22,22 @@ describe LanguagesGetter do
       )
 
       expect(language_getter.languages).to eq(%w[Ruby Ruby Ruby Ruby])
+    end
+
+    it 'raised LanguagesGetter::FailedRequestError for failed request' do
+      username = 'jane-smith'
+
+      stub_request(
+        :get, "https://api.github.com/users/#{username}/repos"
+      ).to_return(
+        status: 400
+      )
+
+      language_getter = described_class.new(username)
+
+      expect { language_getter.languages }.to raise_error(
+        LanguagesGetter::FailedRequestError
+      )
     end
   end
 end

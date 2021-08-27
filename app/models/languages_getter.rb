@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class LanguagesGetter
+  class FailedRequestError < StandardError; end
+
   def initialize(username)
     @username = username
   end
@@ -15,6 +17,8 @@ class LanguagesGetter
 
   def repos
     client.repos(username)
+  rescue Octokit::Error
+    raise FailedRequestError
   end
 
   def client
