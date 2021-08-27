@@ -52,4 +52,38 @@ describe FavouriteLanguage do
       expect(favourite_language.best_guess).to eq('Ruby')
     end
   end
+
+  describe '#any_languages?' do
+    it 'returns true if there are any languages' do
+      username = 'jane-smith'
+      language_getter = double('LanguageGetter', languages: %w[Ruby])
+
+      allow(LanguagesGetter)
+        .to receive(:new)
+        .with(username)
+        .and_return(language_getter)
+
+      favourite_language = described_class.new
+      favourite_language.username = username
+      favourite_language.fetch_languages
+
+      expect(favourite_language.any_languages?).to eq(true)
+    end
+
+    it 'returns false if there are no languages' do
+      username = 'jane-smith'
+      language_getter = double('LanguageGetter', languages: [])
+
+      allow(LanguagesGetter)
+        .to receive(:new)
+        .with(username)
+        .and_return(language_getter)
+
+      favourite_language = described_class.new
+      favourite_language.username = username
+      favourite_language.fetch_languages
+
+      expect(favourite_language.any_languages?).to eq(false)
+    end
+  end
 end

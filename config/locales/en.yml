@@ -7,10 +7,11 @@ en:
       title: Oh dear
     new:
       description: Enter a GitHub username to get a best guess of the GitHub user's
-        favourite programming language
+        favourite programming language.
       title: Favourite Language
     show:
       new_search: New Search
+      no_languages: "%{username} hasn't used any recognised languages."
       title: "%{username}'s Favourite Language"
   helpers:
     submit:

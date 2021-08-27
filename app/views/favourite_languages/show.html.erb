@@ -1,3 +1,7 @@
 <h1><%= t('.title', username: @favourite_language.username) %></h1>
-<strong><%= @favourite_language.best_guess %></strong>
+<% if @favourite_language.any_languages? %>
+  <strong><%= @favourite_language.best_guess %></strong>
+<% else %>
+  <p><%= t('.no_languages', username: @favourite_language.username) %></p>
+<% end %>
 <%= link_to(t('.new_search'), new_favourite_languages_path) %>

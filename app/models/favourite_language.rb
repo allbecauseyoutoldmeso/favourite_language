@@ -15,6 +15,10 @@ class FavouriteLanguage
     @languages = languages_getter.languages
   end
 
+  def any_languages?
+    languages.any?
+  end
+
   private
 
   attr_reader :languages
