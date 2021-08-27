@@ -18,8 +18,6 @@ class LanguagesGetter
   end
 
   def client
-    Octokit::Client.new(
-      access_token: ENV['GITHUB_ACCESS_TOKEN']
-    )
+    Octokit::Client.new
   end
 end
