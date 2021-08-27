@@ -1,5 +1,6 @@
 <h1><%= t('.title') %></h1>
-<%= simple_form_for @favourite_language, url: favourite_languages_path, method: :get do |f| %>
-  <%= f.input :username %>
-  <%= f.button :submit %>
+<p><%= t('.description') %><p>
+<%= simple_form_for(@favourite_language, url: favourite_languages_path, method: :get) do |f| %>
+  <%= f.input(:username) %>
+  <%= f.button(:submit) %>
 <% end %>

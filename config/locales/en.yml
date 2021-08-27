@@ -1,21 +1,28 @@
+---
 en:
   favourite_languages:
     new:
-      title: Favourite Language Guesser
+      description: Enter a GitHub username to get a best guess of the GitHub user's
+        favourite programming language
+      title: Favourite Language
     show:
+      new_search: New Search
       title: "%{username}'s Favourite Language"
   helpers:
     submit:
       favourite_language:
         create: Submit
+  layouts:
+    application:
+      title: Favourite Language
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
-    required:
-      text: 'required'
-      mark: '*'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: 'Please review the problems below:'
     labels:
       favourite_language:
         username: GitHub Username
+    'no': 'No'
+    required:
+      mark: ''
+      text: required
+    'yes': 'Yes'

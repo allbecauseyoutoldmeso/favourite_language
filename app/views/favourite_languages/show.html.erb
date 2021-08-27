@@ -1,2 +1,3 @@
 <h1><%= t('.title', username: @favourite_language.username) %></h1>
-<%= @favourite_language.best_guess %>
+<strong><%= @favourite_language.best_guess %></strong>
+<%= link_to(t('.new_search'), new_favourite_languages_path) %>
