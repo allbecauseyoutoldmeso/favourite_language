@@ -8,7 +8,9 @@ class FavouriteLanguage
   validates :username, presence: true
 
   def best_guess
-    languages.tally.max_by { |_key, value| value }[0]
+    languages_tally.select do |_key, value|
+      value == languages_tally.values.max
+    end.keys
   end
 
   def fetch_languages
@@ -22,6 +24,10 @@ class FavouriteLanguage
   private
 
   attr_reader :languages
+
+  def languages_tally
+    @languages_tally ||= languages.tally
+  end
 
   def languages_getter
     LanguagesGetter.new(username)

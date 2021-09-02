@@ -1,6 +1,6 @@
 <h1><%= t('.title', username: @favourite_language.username) %></h1>
 <% if @favourite_language.any_languages? %>
-  <strong><%= @favourite_language.best_guess %></strong>
+  <strong><%= @favourite_language.best_guess.join(t('.and')) %></strong>
 <% else %>
   <p><%= t('.no_languages', username: @favourite_language.username) %></p>
 <% end %>

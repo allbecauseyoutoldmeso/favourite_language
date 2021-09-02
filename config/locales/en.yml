@@ -10,6 +10,7 @@ en:
         favourite programming language.
       title: Favourite Language
     show:
+      and: " and "
       new_search: New Search
       no_languages: "%{username} hasn't used any recognised languages."
       title: "%{username}'s Favourite Language"

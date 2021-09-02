@@ -49,7 +49,32 @@ describe FavouriteLanguage do
       favourite_language.username = username
       favourite_language.fetch_languages
 
-      expect(favourite_language.best_guess).to eq('Ruby')
+      expect(favourite_language.best_guess).to eq(['Ruby'])
+    end
+
+    it 'returns most common languages when there are more than one' do
+      username = 'jane-smith'
+
+      language_getter = double(
+        'LanguageGetter',
+        languages: %w[
+          Ruby
+          Ruby
+          Javascript
+          Javascript
+        ]
+      )
+
+      allow(LanguagesGetter)
+        .to receive(:new)
+        .with(username)
+        .and_return(language_getter)
+
+      favourite_language = described_class.new
+      favourite_language.username = username
+      favourite_language.fetch_languages
+
+      expect(favourite_language.best_guess).to eq(%w[Ruby Javascript])
     end
   end
 
